@@ -1,1 +1,3 @@
-# GPU_replacement_policy_tests
+# GPU_replacement_policy_test
+
+tests
