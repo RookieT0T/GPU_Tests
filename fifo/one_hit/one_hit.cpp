@@ -88,13 +88,13 @@ __global__ void kernel(int * arr) {
 // host code
 int main(){
     int *arr = (int *)calloc(sizeof(int), CACHE_ENTRIES);
-    //uint64_t *dummy = (uint64_t *)calloc(sizeof(uint64_t), 1);
+    uint64_t *dummy = (uint64_t *)calloc(sizeof(uint64_t), 1);
 
     int *arr_g;
-    //uint64_t *dummy_g;
+    uint64_t *dummy_g;
 
     hipMallocManaged(&arr_g, CACHE_ENTRIES*sizeof(int));
-    //hipMallocManaged(&dummy_g, CACHE_ENTRIES*sizeof(uint64_t));
+    hipMallocManaged(&dummy_g, CACHE_ENTRIES*sizeof(uint64_t));
 
     // initialize arr_g with arr
     hipMemcpy(arr_g, arr, CACHE_ENTRIES*sizeof(int), hipMemcpyHostToDevice);
@@ -103,12 +103,12 @@ int main(){
     hipLaunchKernelGGL(kernel, dim3(1), dim3(1), 0, 0,  arr_g);
 
     // copy dummy value back to ensure compiler doesn't optimize out anything
-    //hipMemcpy(dummy, dummy_g, 1*sizeof(uint64_t), hipMemcpyDeviceToHost);
+    hipMemcpy(dummy, dummy_g, 1*sizeof(uint64_t), hipMemcpyDeviceToHost);
     //printf("Dummy value = %lu\n", dummy[0]);
 
     hipFree(arr_g);
-    //hipFree(dummy_g);
+    hipFree(dummy_g);
     free(arr);
-    //free(dummy);
+    free(dummy);
     return 0;
 }
