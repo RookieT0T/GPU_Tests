@@ -19,9 +19,10 @@
 __global__ void kernel(int * arr) {
   // every array location is 4B wide, so given a cache of size N and associativity M, we can figure out which addresses map to which indices
 
-  uint64_t a = 0, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0, i = 0, j = 0, k = 0, l = 0, m = 0, n = 0, o = 0, p = 0, q = 0;
-  uint64_t r = 0, s = 0, t = 0, u = 0, v = 0, w = 0, x = 0, y = 0, z = 0, a1 = 0, a2 = 0, a3 = 0, a4 = 0;
-  uint64_t b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0, b7 = 0, b8 = 0, b9 = 0, b10 = 0, b11 = 0, b12 = 0, b13 = 0, b14 = 0, b15 = 0, b16 = 0, b17 = 0, b18 = 0, b19 = 0;
+  uint64_t a = 0;
+  //, b = 0, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0, i = 0, j = 0, k = 0, l = 0, m = 0, n = 0, o = 0, p = 0, q = 0;
+  //uint64_t r = 0, s = 0, t = 0, u = 0, v = 0, w = 0, x = 0, y = 0, z = 0, a1 = 0, a2 = 0, a3 = 0, a4 = 0;
+  //uint64_t b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0, b7 = 0, b8 = 0, b9 = 0, b10 = 0, b11 = 0, b12 = 0, b13 = 0, b14 = 0, b15 = 0, b16 = 0, b17 = 0, b18 = 0, b19 = 0;
 
   asm volatile(
 	  /*
@@ -183,19 +184,19 @@ __global__ void kernel(int * arr) {
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "s_nop 0\n\t"
     : 
-    [out0]"=v"(a), [out2]"=v"(b), [out4]"=v"(c), [out6]"=v"(d), 
-    [out8]"=v"(e), [out10]"=v"(f), [out12]"=v"(g), [out14]"=v"(h), 
-    [out16]"=v"(i), [out18]"=v"(j), [out20]"=v"(k), [out22]"=v"(l), 
-    [out24]"=v"(m), [out26]"=v"(n), [out28]"=v"(o), [out30]"=v"(p), 
-    [out32]"=v"(q), [out34]"=v"(r), [out36]"=v"(s), [out38]"=v"(t), 
-    [out40]"=v"(u), [out42]"=v"(v), [out44]"=v"(w), [out46]"=v"(x),
-    [out48]"=v"(y), [out50]"=v"(z), [out52]"=v"(a1), [out54]"=v"(a2),
-    [out56]"=v"(a3), [out58]"=v"(a4), [out60]"=v"(b0), [out62]"=v"(b1),
-    [out64]"=v"(b2), [out66]"=v"(b3), [out68]"=v"(b4), [out70]"=v"(b5),
-    [out72]"=v"(b6), [out74]"=v"(b7), [out76]"=v"(b8), [out78]"=v"(b9),
-    [out80]"=v"(b10), [out82]"=v"(b11), [out84]"=v"(b12), [out86]"=v"(b13),
-    [out88]"=v"(b14), [out90]"=v"(b15), [out92]"=v"(b16), [out94]"=v"(b17),
-    [out96]"=v"(b18), [out98]"=v"(b19)
+    [out0]"=v"(a), [out2]"=v"(a), [out4]"=v"(a), [out6]"=v"(a), 
+    [out8]"=v"(a), [out10]"=v"(a), [out12]"=v"(a), [out14]"=v"(a), 
+    [out16]"=v"(a), [out18]"=v"(a), [out20]"=v"(a), [out22]"=v"(a), 
+    [out24]"=v"(a), [out26]"=v"(a), [out28]"=v"(a), [out30]"=v"(a), 
+    [out32]"=v"(a), [out34]"=v"(a), [out36]"=v"(a), [out38]"=v"(a), 
+    [out40]"=v"(a), [out42]"=v"(a), [out44]"=v"(a), [out46]"=v"(a),
+    [out48]"=v"(a), [out50]"=v"(a), [out52]"=v"(a), [out54]"=v"(a),
+    [out56]"=v"(a), [out58]"=v"(a), [out60]"=v"(a), [out62]"=v"(a),
+    [out64]"=v"(a), [out66]"=v"(a), [out68]"=v"(a), [out70]"=v"(a),
+    [out72]"=v"(a), [out74]"=v"(a), [out76]"=v"(a), [out78]"=v"(a),
+    [out80]"=v"(a), [out82]"=v"(a), [out84]"=v"(a), [out86]"=v"(a),
+    [out88]"=v"(a), [out90]"=v"(a), [out92]"=v"(a), [out94]"=v"(a),
+    [out96]"=v"(a), [out98]"=v"(a)
     : 
     [in1]"v"((uint64_t *)&arr[0]), [in3]"v"((uint64_t *)&arr[65536]), 
     [in5]"v"((uint64_t *)&arr[131072]), [in7]"v"((uint64_t *)&arr[196608]), 
