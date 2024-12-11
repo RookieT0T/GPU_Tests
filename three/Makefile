@@ -4,9 +4,9 @@ HIP_PATH ?= /opt/rocm/hip
 
 CC := hipcc
 
-SRC = two.cpp
+SRC = three.cpp
 
-EXE = two
+EXE = three
 
 
 release:

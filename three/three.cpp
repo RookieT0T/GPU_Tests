@@ -32,11 +32,15 @@ __global__ void kernel(int * arr) {
     "flat_load_dwordx2 %[out2], %[in3] glc\n\t"   // b
     
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+    "flat_load_dwordx2 %[out4], %[in5] glc\n\t"   // c
+    
+    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "s_nop 0\n\t"
     : 
-    [out0]"=v"(a), [out2]"=v"(b)
+    [out0]"=v"(a), [out2]"=v"(b), [out4]"=v"(c)
     : 
-    [in1]"v"((uint64_t *)&arr[0]), [in3]"v"((uint64_t *)&arr[65536])
+    [in1]"v"((uint64_t *)&arr[0]), [in3]"v"((uint64_t *)&arr[65536]), 
+    [in5]"v"((uint64_t *)&arr[131072])
     :"memory"
             );
 }
