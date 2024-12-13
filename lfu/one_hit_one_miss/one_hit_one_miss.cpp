@@ -69,48 +69,14 @@ __global__ void kernel(int * arr) {
     "flat_load_dwordx2 %[out36], %[in37] glc\n\t"
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "flat_load_dwordx2 %[out38], %[in39] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out40], %[in41] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out42], %[in43] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out44], %[in45] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out46], %[in47] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out48], %[in49] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out50], %[in51] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out52], %[in53] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out54], %[in55] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out56], %[in57] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out58], %[in59] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out60], %[in61] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out62], %[in63] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out64], %[in65] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out66], %[in67] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out68], %[in69] glc\n\t"
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
 
+    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "s_nop 0\n\t"
     : [out0]"=v"(a), [out2]"=v"(b), [out4]"=v"(c), [out6]"=v"(d), 
     [out8]"=v"(e), [out10]"=v"(f), [out12]"=v"(g), [out14]"=v"(h), 
     [out16]"=v"(i), [out18]"=v"(j), [out20]"=v"(k), [out22]"=v"(l), 
     [out24]"=v"(m), [out26]"=v"(n), [out28]"=v"(o), [out30]"=v"(p), 
-    [out32]"=v"(a_1), [out34]"=v"(a_2), [out36]"=v"(b_1), [out38]"=v"(c_1), 
-    [out40]"=v"(d_1), [out42]"=v"(e_1), [out44]"=v"(f_1), [out46]"=v"(g_1), 
-    [out48]"=v"(h_1), [out50]"=v"(i_1), [out52]"=v"(j_1), [out54]"=v"(k_1),
-    [out56]"=v"(l_1), [out58]"=v"(m_1), [out60]"=v"(n_1), [out62]"=v"(o_1), 
-    [out64]"=v"(p_1), [out66]"=v"(q), [out68]"=v"(b_2)
+    [out32]"=v"(a_1), [out34]"=v"(a_2), [out36]"=v"(b_1), [out38]"=v"(c_1)
 
     /*each entry is 64b, so 64*1024 = 65536, and 0 represents first entry a, 
     65536 represents second entry b, 131072 represents entry c and so on*/
@@ -123,17 +89,74 @@ __global__ void kernel(int * arr) {
     [in25]"v"((uint64_t *)&arr[786432]), [in27]"v"((uint64_t *)&arr[851968]),
     [in29]"v"((uint64_t *)&arr[917504]), [in31]"v"((uint64_t *)&arr[983040]), 
     [in33]"v"((uint64_t *)&arr[1]), [in35]"v"((uint64_t *)&arr[2]),
-    [in37]"v"((uint64_t *)&arr[65537]), [in39]"v"((uint64_t *)&arr[131073]), 
-    [in41]"v"((uint64_t *)&arr[196609]), [in43]"v"((uint64_t *)&arr[262145]), 
-    [in45]"v"((uint64_t *)&arr[327681]), [in47]"v"((uint64_t *)&arr[393217]), 
-    [in49]"v"((uint64_t *)&arr[458753]), [in51]"v"((uint64_t *)&arr[524289]), 
-    [in53]"v"((uint64_t *)&arr[589825]), [in55]"v"((uint64_t *)&arr[655361]),
-    [in57]"v"((uint64_t *)&arr[720897]), [in59]"v"((uint64_t *)&arr[786433]), 
-    [in61]"v"((uint64_t *)&arr[851969]), [in63]"v"((uint64_t *)&arr[917505]),
-    [in65]"v"((uint64_t *)&arr[983041]), [in67]"v"((uint64_t *)&arr[1048577]), 
-    [in69]"v"((uint64_t *)&arr[65538])
-    :"memory"
-               );
+    [in37]"v"((uint64_t *)&arr[65537]), [in39]"v"((uint64_t *)&arr[131073])
+    :"memory");
+
+    asm volatile(
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "buffer_wbinvl1\n\t"
+      "flat_load_dwordx2 %[out40], %[in41] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out42], %[in43] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out44], %[in45] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out46], %[in47] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out48], %[in49] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out50], %[in51] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out52], %[in53] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out54], %[in55] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out56], %[in57] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out58], %[in59] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out60], %[in61] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out62], %[in63] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out64], %[in65] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out66], %[in67] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out68], %[in69] glc\n\t"
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "s_nop 0\n\t"
+      :
+      [out40]"=v"(d_1), [out42]"=v"(e_1), [out44]"=v"(f_1), [out46]"=v"(g_1), 
+      [out48]"=v"(h_1), [out50]"=v"(i_1), [out52]"=v"(j_1), [out54]"=v"(k_1),
+      [out56]"=v"(l_1), [out58]"=v"(m_1), [out60]"=v"(n_1), [out62]"=v"(o_1), 
+      [out64]"=v"(p_1), [out66]"=v"(q), [out68]"=v"(b_2)
+      :
+      [in41]"v"((uint64_t *)&arr[196609]), [in43]"v"((uint64_t *)&arr[262145]), 
+      [in45]"v"((uint64_t *)&arr[327681]), [in47]"v"((uint64_t *)&arr[393217]), 
+      [in49]"v"((uint64_t *)&arr[458753]), [in51]"v"((uint64_t *)&arr[524289]), 
+      [in53]"v"((uint64_t *)&arr[589825]), [in55]"v"((uint64_t *)&arr[655361]),
+      [in57]"v"((uint64_t *)&arr[720897]), [in59]"v"((uint64_t *)&arr[786433]), 
+      [in61]"v"((uint64_t *)&arr[851969]), [in63]"v"((uint64_t *)&arr[917505]),
+      [in65]"v"((uint64_t *)&arr[983041]), [in67]"v"((uint64_t *)&arr[1048577]), 
+      [in69]"v"((uint64_t *)&arr[65538])
+      :"memory"
+    );
 }
 
 // host code

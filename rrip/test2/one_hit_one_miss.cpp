@@ -68,7 +68,33 @@ __global__ void kernel(int * arr) {
     "flat_load_dwordx2 %[out36], %[in37] glc\n\t"
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "flat_load_dwordx2 %[out38], %[in39] glc\n\t"
+
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+    "s_nop 0\n\t"
+    : [out0]"=v"(a), [out2]"=v"(b), [out4]"=v"(c), [out6]"=v"(d), 
+    [out8]"=v"(e), [out10]"=v"(f), [out12]"=v"(g), [out14]"=v"(h), 
+    [out16]"=v"(i), [out18]"=v"(j), [out20]"=v"(k), [out22]"=v"(l), 
+    [out24]"=v"(m), [out26]"=v"(n), [out28]"=v"(o), [out30]"=v"(p), 
+    [out32]"=v"(a_1), [out34]"=v"(a_2), [out36]"=v"(b_1), [out38]"=v"(b_2)
+    /*each entry is 64b, so 64*1024 = 65536, and 0 represents first entry a, 
+      65536 represents second entry b, 131072 represents entry c and so on*/
+    : [in1]"v"((uint64_t *)&arr[0]), [in3]"v"((uint64_t *)&arr[65536]), 
+    [in5]"v"((uint64_t *)&arr[131072]), [in7]"v"((uint64_t *)&arr[196608]), 
+    [in9]"v"((uint64_t *)&arr[262144]), [in11]"v"((uint64_t *)&arr[327680]), 
+    [in13]"v"((uint64_t *)&arr[393216]), [in15]"v"((uint64_t *)&arr[458752]), 
+    [in17]"v"((uint64_t *)&arr[524288]), [in19]"v"((uint64_t *)&arr[589824]), 
+    [in21]"v"((uint64_t *)&arr[655360]), [in23]"v"((uint64_t *)&arr[720896]), 
+    [in25]"v"((uint64_t *)&arr[786432]), [in27]"v"((uint64_t *)&arr[851968]), 
+    [in29]"v"((uint64_t *)&arr[917504]), [in31]"v"((uint64_t *)&arr[983040]), 
+    [in33]"v"((uint64_t *)&arr[1]), [in35]"v"((uint64_t *)&arr[2]), 
+    [in37]"v"((uint64_t *)&arr[65537]),
+    [in39]"v"((uint64_t *)&arr[65538])
+    :"memory"
+  );
+
+  asm volatile(
+    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+    "buffer_wbinvl1\n\t"
     "flat_load_dwordx2 %[out40], %[in41] glc\n\t"
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "flat_load_dwordx2 %[out42], %[in43] glc\n\t"
@@ -101,35 +127,18 @@ __global__ void kernel(int * arr) {
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "flat_load_dwordx2 %[out70], %[in71] glc\n\t"
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-     "flat_load_dwordx2 %[out72], %[in73] glc\n\t"
+    "flat_load_dwordx2 %[out72], %[in73] glc\n\t"
+
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "s_nop 0\n\t"
-
-    : [out0]"=v"(a), [out2]"=v"(b), [out4]"=v"(c), [out6]"=v"(d), 
-    [out8]"=v"(e), [out10]"=v"(f), [out12]"=v"(g), [out14]"=v"(h), 
-    [out16]"=v"(i), [out18]"=v"(j), [out20]"=v"(k), [out22]"=v"(l), 
-    [out24]"=v"(m), [out26]"=v"(n), [out28]"=v"(o), [out30]"=v"(p), 
-    [out32]"=v"(a_1), [out34]"=v"(a_2), [out36]"=v"(b_1), [out38]"=v"(b_2), 
+    :
     [out40]"=v"(c_1), [out42]"=v"(d_1), [out44]"=v"(e_1), [out46]"=v"(f_1), 
     [out48]"=v"(g_1), [out50]"=v"(h_1), [out52]"=v"(i_1), [out54]"=v"(j_1),
     [out56]"=v"(k_1), [out58]"=v"(l_1), [out60]"=v"(m_1), [out62]"=v"(n_1), 
     [out64]"=v"(o_1), [out66]"=v"(p_1), [out68]"=v"(q),[out70]"=v"(a_3),
     [out72]"=v"(b_3)
-
-
-    /*each entry is 64b, so 64*1024 = 65536, and 0 represents first entry a, 
-      65536 represents second entry b, 131072 represents entry c and so on*/
-    : [in1]"v"((uint64_t *)&arr[0]), [in3]"v"((uint64_t *)&arr[65536]), 
-    [in5]"v"((uint64_t *)&arr[131072]), [in7]"v"((uint64_t *)&arr[196608]), 
-    [in9]"v"((uint64_t *)&arr[262144]), [in11]"v"((uint64_t *)&arr[327680]), 
-    [in13]"v"((uint64_t *)&arr[393216]), [in15]"v"((uint64_t *)&arr[458752]), 
-    [in17]"v"((uint64_t *)&arr[524288]), [in19]"v"((uint64_t *)&arr[589824]), 
-    [in21]"v"((uint64_t *)&arr[655360]), [in23]"v"((uint64_t *)&arr[720896]), 
-    [in25]"v"((uint64_t *)&arr[786432]), [in27]"v"((uint64_t *)&arr[851968]), 
-    [in29]"v"((uint64_t *)&arr[917504]), [in31]"v"((uint64_t *)&arr[983040]), 
-    [in33]"v"((uint64_t *)&arr[1]), [in35]"v"((uint64_t *)&arr[2]), 
-    [in37]"v"((uint64_t *)&arr[65537]),
-    [in39]"v"((uint64_t *)&arr[65538]), [in41]"v"((uint64_t *)&arr[131073]), 
+    :
+    [in41]"v"((uint64_t *)&arr[131073]), 
     [in43]"v"((uint64_t *)&arr[196609]), [in45]"v"((uint64_t *)&arr[262145]), 
     [in47]"v"((uint64_t *)&arr[327681]), [in49]"v"((uint64_t *)&arr[393217]), 
     [in51]"v"((uint64_t *)&arr[458753]), [in53]"v"((uint64_t *)&arr[524289]), 
@@ -138,10 +147,7 @@ __global__ void kernel(int * arr) {
     [in63]"v"((uint64_t *)&arr[851969]), [in65]"v"((uint64_t *)&arr[917505]),
     [in67]"v"((uint64_t *)&arr[983041]), [in69]"v"((uint64_t *)&arr[1048576]), 
     [in71]"v"((uint64_t *)&arr[3]), [in73]"v"((uint64_t *)&arr[65539])
-
-    :"memory"
-  );
-
+    :"memory");
 }
 
 // host code
