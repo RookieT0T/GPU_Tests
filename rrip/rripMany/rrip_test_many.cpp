@@ -91,112 +91,13 @@ __global__ void kernel(int * arr) {
     "flat_load_dwordx2 %[out38], %[in39] glc\n\t" // e
 
     "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out40], %[in41] glc\n\t" // r
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out42], %[in43] glc\n\t" // f
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out44], %[in45] glc\n\t" // i
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out46], %[in47] glc\n\t" // s
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out48], %[in49] glc\n\t" // t
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out50], %[in51] glc\n\t" // b
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out52], %[in53] glc\n\t" // a
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out54], %[in55] glc\n\t" // d
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out56], %[in57] glc\n\t" // e
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out58], %[in59] glc\n\t" // g
-    
-    // *
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out60], %[in61] glc\n\t" // u
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out62], %[in63] glc\n\t" // m
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out64], %[in65] glc\n\t" // n
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out66], %[in67] glc\n\t" // o
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out68], %[in69] glc\n\t" // p
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out70], %[in71] glc\n\t" // v
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out72], %[in73] glc\n\t" // b
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out74], %[in75] glc\n\t" // w
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out76], %[in77] glc\n\t" // a
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out78], %[in79] glc\n\t" // m
-    
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out80], %[in81] glc\n\t" // x
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out82], %[in83] glc\n\t" // f
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out84], %[in85] glc\n\t" // e
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out86], %[in87] glc\n\t" // i
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out88], %[in89] glc\n\t" // b
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out90], %[in91] glc\n\t" // o
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out92], %[in93] glc\n\t" // u
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out94], %[in95] glc\n\t" // c
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out96], %[in97] glc\n\t" // n
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
-    "flat_load_dwordx2 %[out98], %[in99] glc\n\t" // d
-
-    "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
     "s_nop 0\n\t"
     : 
     [out0]"=v"(a), [out2]"=v"(a), [out4]"=v"(a), [out6]"=v"(a), 
     [out8]"=v"(a), [out10]"=v"(a), [out12]"=v"(a), [out14]"=v"(a), 
     [out16]"=v"(a), [out18]"=v"(a), [out20]"=v"(a), [out22]"=v"(a), 
     [out24]"=v"(a), [out26]"=v"(a), [out28]"=v"(a), [out30]"=v"(a), 
-    [out32]"=v"(a), [out34]"=v"(a), [out36]"=v"(a), [out38]"=v"(a), 
-    [out40]"=v"(a), [out42]"=v"(a), [out44]"=v"(a), [out46]"=v"(a),
-    [out48]"=v"(a), [out50]"=v"(a), [out52]"=v"(a), [out54]"=v"(a),
-    [out56]"=v"(a), [out58]"=v"(a), [out60]"=v"(a), [out62]"=v"(a),
-    [out64]"=v"(a), [out66]"=v"(a), [out68]"=v"(a), [out70]"=v"(a),
-    [out72]"=v"(a), [out74]"=v"(a), [out76]"=v"(a), [out78]"=v"(a),
-    [out80]"=v"(a), [out82]"=v"(a), [out84]"=v"(a), [out86]"=v"(a),
-    [out88]"=v"(a), [out90]"=v"(a), [out92]"=v"(a), [out94]"=v"(a),
-    [out96]"=v"(a), [out98]"=v"(a)
+    [out32]"=v"(a), [out34]"=v"(a), [out36]"=v"(a), [out38]"=v"(a)
     : 
     [in1]"v"((uint64_t *)&arr[0]), [in3]"v"((uint64_t *)&arr[65536]), 
     [in5]"v"((uint64_t *)&arr[131072]), [in7]"v"((uint64_t *)&arr[196608]), 
@@ -207,25 +108,138 @@ __global__ void kernel(int * arr) {
     [in25]"v"((uint64_t *)&arr[786432]), [in27]"v"((uint64_t *)&arr[851968]),
     [in29]"v"((uint64_t *)&arr[917504]), [in31]"v"((uint64_t *)&arr[983040]),    // 16 misses to fill the set
     [in33]"v"((uint64_t *)&arr[1]), [in35]"v"((uint64_t *)&arr[1048576]),        // access a & q
-    [in37]"v"((uint64_t *)&arr[131073]), [in39]"v"((uint64_t *)&arr[262145]),    // access c & e 
-    [in41]"v"((uint64_t *)&arr[1114112]), [in43]"v"((uint64_t *)&arr[327681]),   // access r & f
-    [in45]"v"((uint64_t *)&arr[524289]), [in47]"v"((uint64_t *)&arr[1179648]),   // access i & s
-    [in49]"v"((uint64_t *)&arr[1245184]), [in51]"v"((uint64_t *)&arr[65537]),    // access t & b
-    [in53]"v"((uint64_t *)&arr[2]), [in55]"v"((uint64_t *)&arr[196609]),         // access a & d 
-    [in57]"v"((uint64_t *)&arr[262146]), [in59]"v"((uint64_t *)&arr[393217]),    // access e & g
-    [in61]"v"((uint64_t *)&arr[1310720]), [in63]"v"((uint64_t *)&arr[786433]),   // access u & m
-    [in65]"v"((uint64_t *)&arr[851969]), [in67]"v"((uint64_t *)&arr[917505]),    // access n & o
-    [in69]"v"((uint64_t *)&arr[983041]), [in71]"v"((uint64_t *)&arr[1376256]),   // access p & v
-    [in73]"v"((uint64_t *)&arr[65538]), [in75]"v"((uint64_t *)&arr[1441792]),    // access b & w
-    [in77]"v"((uint64_t *)&arr[3]), [in79]"v"((uint64_t *)&arr[786434]),         // access a & m
-    [in81]"v"((uint64_t *)&arr[1507328]), [in83]"v"((uint64_t *)&arr[327682]),   // access x & f
-    [in85]"v"((uint64_t *)&arr[262147]), [in87]"v"((uint64_t *)&arr[524290]),    // access e & i
-    [in89]"v"((uint64_t *)&arr[65539]), [in91]"v"((uint64_t *)&arr[917506]),     // access b & o
-    [in93]"v"((uint64_t *)&arr[1310721]), [in95]"v"((uint64_t *)&arr[131074]),   // access u & c
-    [in97]"v"((uint64_t *)&arr[851970]), [in99]"v"((uint64_t *)&arr[196610])     // access n & d
-    :"memory"
-            );
-}
+    [in37]"v"((uint64_t *)&arr[131073]), [in39]"v"((uint64_t *)&arr[262145])    // access c & e
+    :"memory");
+    
+    asm volatile(
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "buffer_wbinvl1\n\t"
+      "flat_load_dwordx2 %[out40], %[in41] glc\n\t" // r
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out42], %[in43] glc\n\t" // f
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out44], %[in45] glc\n\t" // i
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out46], %[in47] glc\n\t" // s
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out48], %[in49] glc\n\t" // t
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out50], %[in51] glc\n\t" // b
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out52], %[in53] glc\n\t" // a
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out54], %[in55] glc\n\t" // d
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out56], %[in57] glc\n\t" // e
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out58], %[in59] glc\n\t" // g
+      
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out60], %[in61] glc\n\t" // u
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out62], %[in63] glc\n\t" // m
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out64], %[in65] glc\n\t" // n
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out66], %[in67] glc\n\t" // o
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out68], %[in69] glc\n\t" // p
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out70], %[in71] glc\n\t" // v
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out72], %[in73] glc\n\t" // b
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out74], %[in75] glc\n\t" // w
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out76], %[in77] glc\n\t" // a
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "flat_load_dwordx2 %[out78], %[in79] glc\n\t" // m
+
+      "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+      "s_nop 0\n\t"
+      :
+      [out40]"=v"(a), [out42]"=v"(a), [out44]"=v"(a), [out46]"=v"(a),
+      [out48]"=v"(a), [out50]"=v"(a), [out52]"=v"(a), [out54]"=v"(a),
+      [out56]"=v"(a), [out58]"=v"(a), [out60]"=v"(a), [out62]"=v"(a),
+      [out64]"=v"(a), [out66]"=v"(a), [out68]"=v"(a), [out70]"=v"(a),
+      [out72]"=v"(a), [out74]"=v"(a), [out76]"=v"(a), [out78]"=v"(a)
+      :
+      [in41]"v"((uint64_t *)&arr[1114112]), [in43]"v"((uint64_t *)&arr[327681]),   // access r & f
+      [in45]"v"((uint64_t *)&arr[524289]), [in47]"v"((uint64_t *)&arr[1179648]),   // access i & s
+      [in49]"v"((uint64_t *)&arr[1245184]), [in51]"v"((uint64_t *)&arr[65537]),    // access t & b
+      [in53]"v"((uint64_t *)&arr[2]), [in55]"v"((uint64_t *)&arr[196609]),         // access a & d 
+      [in57]"v"((uint64_t *)&arr[262146]), [in59]"v"((uint64_t *)&arr[393217]),    // access e & g
+      [in61]"v"((uint64_t *)&arr[1310720]), [in63]"v"((uint64_t *)&arr[786433]),   // access u & m
+      [in65]"v"((uint64_t *)&arr[851969]), [in67]"v"((uint64_t *)&arr[917505]),    // access n & o
+      [in69]"v"((uint64_t *)&arr[983041]), [in71]"v"((uint64_t *)&arr[1376256]),   // access p & v
+      [in73]"v"((uint64_t *)&arr[65538]), [in75]"v"((uint64_t *)&arr[1441792]),    // access b & w
+      [in77]"v"((uint64_t *)&arr[3]), [in79]"v"((uint64_t *)&arr[786434])         // access a & m
+      :"memory");
+
+      asm volatile(
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "buffer_wbinvl1\n\t"
+        "flat_load_dwordx2 %[out80], %[in81] glc\n\t" // x
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out82], %[in83] glc\n\t" // f
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out84], %[in85] glc\n\t" // e
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out86], %[in87] glc\n\t" // i
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out88], %[in89] glc\n\t" // b
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out90], %[in91] glc\n\t" // o
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out92], %[in93] glc\n\t" // u
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out94], %[in95] glc\n\t" // c
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out96], %[in97] glc\n\t" // n
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "flat_load_dwordx2 %[out98], %[in99] glc\n\t" // d
+
+        "s_waitcnt vmcnt(0) & lgkmcnt(0)\n\t"
+        "s_nop 0\n\t"
+        :
+        [out80]"=v"(a), [out82]"=v"(a), [out84]"=v"(a), [out86]"=v"(a),
+        [out88]"=v"(a), [out90]"=v"(a), [out92]"=v"(a), [out94]"=v"(a),
+        [out96]"=v"(a), [out98]"=v"(a)
+        :
+        [in81]"v"((uint64_t *)&arr[1507328]), [in83]"v"((uint64_t *)&arr[327682]),   // access x & f
+        [in85]"v"((uint64_t *)&arr[262147]), [in87]"v"((uint64_t *)&arr[524290]),    // access e & i
+        [in89]"v"((uint64_t *)&arr[65539]), [in91]"v"((uint64_t *)&arr[917506]),     // access b & o
+        [in93]"v"((uint64_t *)&arr[1310721]), [in95]"v"((uint64_t *)&arr[131074]),   // access u & c
+        [in97]"v"((uint64_t *)&arr[851970]), [in99]"v"((uint64_t *)&arr[196610])     // access n & d
+        :"memory");
+    }
 
 // host code
 int main(){
